@@ -1,0 +1,103 @@
+@startuml
+class com.example.cafeshop.model.login.GivenEmployee {
+- Connection connection
+- PreparedStatement ps
+- ResultSet rs
+- Messages message
+~ Employee employee
++ ObservableList questionList()
++ boolean registerUser(Employee)
++ boolean getLogin(String,String)
++ boolean verifyUserCredentials(String,String,String)
++ void upData(String,String,String)
+}
+class com.example.cafeshop.model.Messages {
++ void confirmation(String,String)
++ void warning(String,String)
++ void error(String,String)
++ Boolean information(String,String)
+}
+class com.example.cafeshop.model.login.Employee {
+- int id
+- String username
+- String password
+- String question
+- String answer
++ int getId()
++ void setId(int)
++ String getUsername()
++ void setUsername(String)
++ String getPassword()
++ void setPassword(String)
++ String getQuestion()
++ void setQuestion(String)
++ String getAnswer()
++ void setAnswer(String)
+}
+class com.example.cafeshop.controller.Login_Controller {
+~ GivenEmployee givenEmploye
+~ Employee employees
+~ Messages message
+- AnchorPane anchP_FP_QuestionForm
+- AnchorPane anchP_LC_LoginForm
+- AnchorPane anchP_NP_NewPassForm
+- AnchorPane anchP_RC_SingUpForm
+- AnchorPane anchP_SideForm
+- Button btn_Fp_Back
+- Button btn_Fp_Proceed
+- Button btn_Lc_Login
+- Button btn_Np_Back
+- Button btn_Np_ChangePass
+- Button btn_Rc_SingUp
+- Button btn_Side_AllReadyHave
+- Button btn_Side_Create
+- ComboBox<?> cb_Fp_Question
+- ComboBox<?> cb_Rc_Question
+- TextField txt_Fp_Answer
+- TextField txt_Fp_Username
+- PasswordField txt_Lc_Password
+- TextField txt_Lc_Username
+- TextField txt_Np_ConfirPassword
+- TextField txt_Np_Password
+- TextField txt_Rc_Answer
+- TextField txt_Rc_Password
+- TextField txt_Rc_Username
++ void initialize(URL,ResourceBundle)
+- void backToLoginForm()
+- void backToQuestionForm()
+- void changePassword(ActionEvent)
+- void login()
+- void proceed(ActionEvent)
+- void register(ActionEvent)
+- void clearFields()
+- void switchForm(ActionEvent)
+- void switchForgotPass(ActionEvent)
+- void forgotPassquestionList()
+- boolean validateFields(String,String,String,String)
+- boolean validateFields(String,String)
+}
+class com.example.cafeshop.controller.Dashboard_Controller {
++ void initialize(URL,ResourceBundle)
++ void closeWindows()
+}
+class com.example.cafeshop.model.ResourcesLoader {
++ {static} URL loadURL(String)
++ {static} String load(String)
++ {static} InputStream loadStream(String)
+}
+class com.example.cafeshop.App {
++ void start(Stage)
++ {static} void main(String[])
+}
+class com.example.cafeshop.model.DB_Connector {
+- {static} String DB_URL
+- {static} String USER
+- {static} String PASS
++ {static} Connection getConnection()
+}
+
+
+javafx.fxml.Initializable <|.. com.example.cafeshop.controller.Login_Controller
+javafx.fxml.Initializable <|.. com.example.cafeshop.controller.Dashboard_Controller
+javafx.application.Application <|-- com.example.cafeshop.App
+@enduml

@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.example.cafeshop'
-    mainClass = 'com.example.cafeshop.HelloApplication'
+    mainClass = 'com.example.cafeshop.App'
 }
 
 javafx {
@@ -38,6 +38,10 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    // Fontawesomefx
+    implementation group: 'de.jensd', name: 'fontawesomefx', version: '8.2'
+    // mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.48'
 }
 
 test {

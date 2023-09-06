@@ -1,0 +1,68 @@
+.gradient{
+-fx-background-color: linear-gradient(to bottom right,#2962FF, #42A5F5);
+
+}
+.white-form{
+-fx-background-color:#FFF;
+}
+.btn_create{
+-fx-background-color:transparent;
+-fx-cursor:hand;
+-fx-text-fill:#FFF;
+}
+.btn_create:hover{
+-fx-background-color:#0D47A1;
+-fx-text-fill:#FFF;
+-fx-font-weight:bold;
+}
+.head-label{
+-fx-border-color:#0D47A1;
+-fx-border-width: 0 0 0 3px;
+-fx-padding:0 0 0 5px;
+-fx-font-size:20px;
+-fx-text-fill:#2196f3;
+}
+.textfield{
+-fx-background-color:transparent;
+-fx-border-color: linear-gradient(to bottom right, #2962FF, #42A5F5);
+-fx-border-width: .5px;
+-fx-pref-width:220px;
+-fx-pref-height: 30px;
+}
+.textfield:focused{
+-fx-border-width:1px;
+}
+
+.btn_login{
+-fx-background-color: linear-gradient(to bottom right, #1E88E5, #64B5F6);
+-fx-background-radius:5px;
+-fx-cursor:hand;
+-fx-text-fill: #fff;
+-fx-font-size: 14px;
+-fx-pref-width: 220px;
+-fx-pref-height: 40px;
+}
+.btn_login:hover{
+-fx-background-color: linear-gradient(to bottom right,#2962FF, #42A5F5);
+}
+.btn_Back{
+    -fx-background-color: linear-gradient(to bottom right, #1E88E5, #64B5F6);
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+}
+.create-btn{
+    -fx-background-color:transparent;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+}
+.create-btn:hover{
+    -fx-background-color:#0D47A1;
+    -fx-text-fill: #FFF;
+    -fx-font-weight: bold;
+
+}
+
+
+

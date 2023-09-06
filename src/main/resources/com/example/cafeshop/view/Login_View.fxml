@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/Login_Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cafeshop.controller.Login_Controller">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <AnchorPane fx:id="anchP_LC_LoginForm" layoutX="300.0" layoutY="1.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                    <children>
+                        <Label layoutX="34.0" layoutY="65.0" styleClass="head-label" text="Login Account" />
+                        <TextField fx:id="txt_Lc_Username" layoutX="40.0" layoutY="152.0" onAction="#login" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="textfield" />
+                        <PasswordField fx:id="txt_Lc_Password" layoutX="40.0" layoutY="192.0" onAction="#login" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfield" />
+                        <Hyperlink layoutX="40.0" layoutY="229.0" onAction="#switchForgotPass" text="Forgot Password?" />
+                        <Button fx:id="btn_Lc_Login" layoutX="40.0" layoutY="259.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="220.0" styleClass="btn_login" text="Login" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchP_RC_SingUpForm" layoutY="16.0" prefHeight="400.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="34.0" layoutY="64.0" styleClass="head-label" text="Register Account" AnchorPane.topAnchor="64.0" />
+                        <TextField fx:id="txt_Rc_Username" layoutX="40.0" layoutY="121.0" onAction="#register" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="textfield" />
+                        <Button fx:id="btn_Rc_SingUp" layoutX="40.0" layoutY="294.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="220.0" styleClass="btn_login" text="Sing UP" />
+                        <ComboBox fx:id="cb_Rc_Question" layoutX="40.0" layoutY="200.0" prefHeight="30.0" prefWidth="220.0" promptText="Question" styleClass="textfield" />
+                        <TextField fx:id="txt_Rc_Answer" layoutX="40.0" layoutY="240.0" onAction="#register" prefHeight="30.0" prefWidth="220.0" promptText="Answer" styleClass="textfield" />
+                        <TextField fx:id="txt_Rc_Password" layoutX="40.0" layoutY="161.0" onAction="#register" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfield" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchP_FP_QuestionForm" layoutX="320.0" layoutY="20.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="34.0" layoutY="64.0" styleClass="head-label" text="Forgot Password" />
+                        <TextField fx:id="txt_Fp_Username" layoutX="40.0" layoutY="127.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="textfield" />
+                        <Button fx:id="btn_Fp_Proceed" layoutX="40.0" layoutY="256.0" mnemonicParsing="false" onAction="#proceed" prefHeight="40.0" prefWidth="220.0" styleClass="btn_login" text="Proceed" />
+                        <ComboBox fx:id="cb_Fp_Question" layoutX="40.0" layoutY="167.0" prefHeight="30.0" prefWidth="220.0" promptText="Question" styleClass="textfield" />
+                        <TextField fx:id="txt_Fp_Answer" layoutX="40.0" layoutY="203.0" prefHeight="30.0" prefWidth="220.0" promptText="Answer" styleClass="textfield" />
+                        <Button fx:id="btn_Fp_Back" layoutX="116.0" layoutY="355.0" mnemonicParsing="false" onAction="#backToLoginForm" prefWidth="68.0" styleClass="btn_Back" text="Back" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchP_NP_NewPassForm" layoutX="330.0" layoutY="30.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="34.0" layoutY="64.0" styleClass="head-label" text="New Password" />
+                        <TextField fx:id="txt_Np_Password" layoutX="40.0" layoutY="127.0" onAction="#changePassword" prefHeight="30.0" prefWidth="220.0" promptText="New Password" styleClass="textfield" />
+                        <Button fx:id="btn_Np_ChangePass" layoutX="40.0" layoutY="216.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="40.0" prefWidth="220.0" styleClass="btn_login" text="Change Password" />
+                        <TextField fx:id="txt_Np_ConfirPassword" layoutX="40.0" layoutY="164.0" onAction="#changePassword" prefHeight="30.0" prefWidth="220.0" promptText="Confirmation Password" styleClass="textfield" />
+                        <Button fx:id="btn_Np_Back" layoutX="192.0" layoutY="302.0" mnemonicParsing="false" onAction="#backToQuestionForm" prefWidth="68.0" styleClass="btn_Back" text="Back" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchP_SideForm" layoutX="340.0" layoutY="40.0" prefHeight="400.0" prefWidth="300.0" styleClass="gradient" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="86.0" layoutY="181.0" text="Cafe Shop" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="27.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btn_Side_Create" layoutX="40.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="220.0" styleClass="btn_create" text="Create new Account" />
+                        <Button fx:id="btn_Side_AllReadyHave" layoutX="40.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="220.0" styleClass="create-btn" text="Already have an Account" visible="false" />
+                  <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="77.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/coffee.png" />
+                     </image>
+                  </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
