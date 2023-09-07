@@ -232,23 +232,32 @@ public class Login_Controller implements Initializable {
 	 * @param event The event that triggered this action.
 	 */
 	@FXML
-	private void changePassword (ActionEvent event) {
+	private void changePassword(ActionEvent event) {
 		// Check if both new password and confirm password fields are not empty
-		if (! txt_Np_Password.getText ().isEmpty () || ! txt_Np_ConfirPassword.getText ().isEmpty ()) {
-			// Check if the new password matches the confirm password
-			if (txt_Np_Password.getText ().equals (txt_Np_ConfirPassword.getText ())) {
-				// Update the employee's password in the database
-				employees.setPassword (txt_Np_Password.getText ());
-				givenEmploye.changePasswordDB (employees);
-				// Clear the input fields
-				txt_Np_Password.setText ("");
-				txt_Np_ConfirPassword.setText ("");
+		if (!txt_Np_Password.getText().isEmpty() || !txt_Np_ConfirPassword.getText().isEmpty()) {
+			// Check if the new password matches the confirmation password
+			if (txt_Np_Password.getText().equals(txt_Np_ConfirPassword.getText())) {
+				// Check if the new password meets the minimum length requirement
+				if (txt_Np_Password.getText().length() >= 8) {
+					// Update the employee's password in the database
+					employees.setPassword(txt_Np_Password.getText());
+					givenEmploye.changePasswordDB(employees);
+					// Clear the input fields
+					txt_Np_Password.setText("");
+					txt_Np_ConfirPassword.setText("");
+					anchP_LC_LoginForm.setVisible(true);
+					anchP_NP_NewPassForm.setVisible(false);
+				} else {
+					// Display an error message if the password is too short
+					message.error("Password", "La contraseña debe tener al menos 8 caracteres.");
+				}
 			} else {
 				// Display an error message if the passwords do not match
-				message.error ("Password", "The passwords must be the same.");
+				message.error("Password", "Las contraseñas deben coincidir.");
 			}
 		}
 	}
+	
 	
 	@FXML
 	private void register (ActionEvent event) {
@@ -265,16 +274,7 @@ public class Login_Controller implements Initializable {
 				message.information ("Usuario", "Successfully registered Account!");
 				clearFields ();
 				//Carrousel
-				TranslateTransition slider = new TranslateTransition ();
-				slider.setNode (anchP_SideForm);
-				slider.setToX (0);
-				slider.setDuration (Duration.seconds (.5));
-				
-				slider.setOnFinished ((ActionEvent e) -> {
-					btn_Side_AllReadyHave.setVisible (false);
-					btn_Side_Create.setVisible (true);
-				});
-				slider.play ();
+				carrousel (anchP_SideForm);
 				
 			} else {
 				clearFields ();
@@ -285,6 +285,10 @@ public class Login_Controller implements Initializable {
 	}
 	
 	private void clearFields () {
+		txt_Rc_Username.setText ("");
+		txt_Rc_Password.setText ("");
+		cb_Rc_Question.getSelectionModel ().clearSelection ();
+		txt_Rc_Answer.setText ("");
 	}
 	
 	/**
@@ -353,6 +357,19 @@ public class Login_Controller implements Initializable {
 	
 	private boolean validateFields (String username, String password) {
 		return ! username.isEmpty () && ! password.isEmpty ();
+	}
+	
+	public void carrousel (AnchorPane anchorPane) {
+		TranslateTransition slider = new TranslateTransition ();
+		slider.setNode (anchorPane);
+		slider.setToX (0);
+		slider.setDuration (Duration.seconds (0.5));
+		
+		slider.setOnFinished ((ActionEvent e) -> {
+			btn_Side_AllReadyHave.setVisible (false);
+			btn_Side_Create.setVisible (true);
+		});
+		slider.play ();
 	}
 	
 }

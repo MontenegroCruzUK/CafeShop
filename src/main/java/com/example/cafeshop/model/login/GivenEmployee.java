@@ -140,7 +140,6 @@ public class GivenEmployee {
 			message.error ("Error DB","The password could not be changed, database error.");
 			System.out.println (e.getMessage ());
 		}
-		
 	}
 }
 
