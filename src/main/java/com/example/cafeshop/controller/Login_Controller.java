@@ -157,7 +157,7 @@ public class Login_Controller implements Initializable {
 					// Hide the login window
 					btn_Lc_Login.getScene ().getWindow ().hide ();
 				} catch (IOException e) {
-					System.out.println ("Error in the window");
+					System.out.println ("Error in the window"+ e.toString ());
 				}
 			} else {
 				// Display an error message for invalid username or password
@@ -257,7 +257,6 @@ public class Login_Controller implements Initializable {
 			}
 		}
 	}
-	
 	
 	@FXML
 	private void register (ActionEvent event) {

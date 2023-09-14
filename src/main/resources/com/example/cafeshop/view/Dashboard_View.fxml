@@ -1,11 +1,549 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="600.0" prefWidth="1100.0" stylesheets="@../css/Dashboard_Style.css"
+           xmlns="http://javafx.com/javafx/20.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.cafeshop.controller.Dashboard_Controller">
+    <children>
+        <AnchorPane prefHeight="600.0" prefWidth="1100.0">
+            <children>
+                <BorderPane layoutX="450.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0"
+                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <left>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane layoutX="11.0" layoutY="161.0" prefHeight="600.0"
+                                            prefWidth="222.0" AnchorPane.bottomAnchor="0.0"
+                                            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                            AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutY="14.0" prefHeight="66.0" prefWidth="200.0"
+                                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                    AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <Label layoutX="22.0" layoutY="25.0"
+                                                       text="Cafe Shop Management System"/>
+                                            </children>
+                                        </AnchorPane>
+                                        <Label layoutX="14.0" layoutY="82.0" text="Welcome">
+                                            <font>
+                                                <Font size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="label_Username" layoutX="14.0" layoutY="103.0"
+                                               prefHeight="27.0" prefWidth="179.0" text="Cristian Montenegro">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="btn_Dashboard" layoutX="6.0" layoutY="199.0"
+                                                mnemonicParsing="false" onAction="#switchForm"
+                                                prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn"
+                                                text="Dashboard"/>
+                                        <Button fx:id="btn_Stock" layoutX="6.0" layoutY="248.0"
+                                                mnemonicParsing="false" onAction="#switchForm"
+                                                prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn"
+                                                text="Stock"/>
+                                        <Button fx:id="btn_Menu" layoutX="6.0" layoutY="300.0"
+                                                mnemonicParsing="false" onAction="#switchForm"
+                                                prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn"
+                                                text="Menu"/>
+                                        <Button fx:id="btn_Customers" layoutX="6.0" layoutY="349.0"
+                                                mnemonicParsing="false" onAction="#switchForm"
+                                                prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn"
+                                                text="Customers"/>
+                                        <Button fx:id="btn_Logout" layoutX="14.0" layoutY="554.0"
+                                                mnemonicParsing="false" onAction="#Logout" prefHeight="40.0"
+                                                prefWidth="41.0" styleClass="nav-btn"
+                                                AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0">
+                                            <graphic>
+                                                <FontAwesomeIcon glyphName="SIGN_OUT" size="2em"/>
+                                            </graphic>
+                                        </Button>
+                                        <Label layoutX="57.0" layoutY="560.0" text="Sing Out"
+                                               AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="57.0"/>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="315.0" layoutY="192.0" text="hola pend3ejo" />
-   </children>
-</Pane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="AchPan_Dashboard" prefHeight="200.0" prefWidth="1119.0"
+                                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane prefHeight="172.0" prefWidth="857.0"
+                                                    AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0"
+                                                    AnchorPane.topAnchor="14.0">
+                                            <children>
+                                                <ScrollPane layoutX="300.0" prefHeight="200.0"
+                                                            prefWidth="851.0" styleClass="transparent"
+                                                            AnchorPane.bottomAnchor="0.0"
+                                                            AnchorPane.leftAnchor="0.0"
+                                                            AnchorPane.rightAnchor="0.0"
+                                                            AnchorPane.topAnchor="0.0">
+                                                    <content>
+                                                        <AnchorPane prefHeight="169.0" prefWidth="1090.0">
+                                                            <children>
+                                                                <AnchorPane layoutX="14.0" layoutY="10.0"
+                                                                            prefHeight="134.0"
+                                                                            prefWidth="252.0">
+                                                                    <children>
+                                                                        <FontAwesomeIcon glyphName="USERS"
+                                                                                         layoutX="14.0"
+                                                                                         layoutY="88.0"
+                                                                                         size="5em" text=""/>
+                                                                        <Label fx:id="labe_Dashb_CostumerNumber"
+                                                                               alignment="CENTER_RIGHT"
+                                                                               layoutX="91.0" layoutY="14.0"
+                                                                               prefHeight="21.0"
+                                                                               prefWidth="147.0" text="0"/>
+                                                                        <Label layoutX="78.0" layoutY="97.0"
+                                                                               text="Number of Customer"/>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane layoutX="288.0" layoutY="10.0"
+                                                                            prefHeight="134.0"
+                                                                            prefWidth="252.0">
+                                                                    <children>
+                                                                        <Label fx:id="labe_Dashb_TodayIncome"
+                                                                               alignment="CENTER_RIGHT"
+                                                                               layoutX="91.0" layoutY="14.0"
+                                                                               prefHeight="21.0"
+                                                                               prefWidth="147.0"
+                                                                               text="\$ 0.00"/>
+                                                                        <Label layoutX="78.0" layoutY="97.0"
+                                                                               text="Today's Income"/>
+                                                                        <FontAwesomeIcon glyphName="DOLLAR"
+                                                                                         layoutX="14.0"
+                                                                                         layoutY="88.0"
+                                                                                         size="5em"/>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane layoutX="564.0" layoutY="10.0"
+                                                                            prefHeight="134.0"
+                                                                            prefWidth="252.0">
+                                                                    <children>
+                                                                        <Label fx:id="labe_Dashb_TotalIncome"
+                                                                               alignment="CENTER_RIGHT"
+                                                                               layoutX="91.0" layoutY="14.0"
+                                                                               prefHeight="21.0"
+                                                                               prefWidth="147.0"
+                                                                               text="\$ 0.00"/>
+                                                                        <Label layoutX="78.0" layoutY="97.0"
+                                                                               text="Total Income"/>
+                                                                        <FontAwesomeIcon glyphName="MONEY"
+                                                                                         layoutX="14.0"
+                                                                                         layoutY="88.0"
+                                                                                         size="5em"/>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <AnchorPane layoutX="838.0" layoutY="10.0"
+                                                                            prefHeight="134.0"
+                                                                            prefWidth="252.0">
+                                                                    <children>
+                                                                        <Label fx:id="labe_Dashb_NumberSoldProd"
+                                                                               alignment="CENTER_RIGHT"
+                                                                               layoutX="91.0" layoutY="14.0"
+                                                                               prefHeight="21.0"
+                                                                               prefWidth="147.0" text="0"/>
+                                                                        <Label layoutX="78.0" layoutY="97.0"
+                                                                               text="Number of Sold Products"/>
+                                                                        <FontAwesomeIcon
+                                                                                glyphName="SHOPPING_CART"
+                                                                                layoutX="14.0" layoutY="88.0"
+                                                                                size="5em"/>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                </ScrollPane>
+                                            </children>
+                                        </AnchorPane>
+                                        <Separator layoutX="14.0" layoutY="193.0" prefHeight="3.0"
+                                                   prefWidth="851.0" AnchorPane.leftAnchor="14.0"
+                                                   AnchorPane.rightAnchor="13.0"
+                                                   AnchorPane.topAnchor="193.0"/>
+                                        <AnchorPane layoutX="284.0" layoutY="282.0" prefHeight="200.0"
+                                                    prefWidth="200.0" AnchorPane.bottomAnchor="14.0"
+                                                    AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0"
+                                                    AnchorPane.topAnchor="206.0">
+                                            <children>
+                                                <AnchorPane layoutX="275.0" layoutY="45.0" prefHeight="344.0"
+                                                            prefWidth="413.0" AnchorPane.bottomAnchor="18.0"
+                                                            AnchorPane.leftAnchor="14.0"
+                                                            AnchorPane.rightAnchor="424.0"
+                                                            AnchorPane.topAnchor="18.0">
+                                                    <children>
+                                                        <AreaChart fx:id="dashboard_IncomeChart"
+                                                                   layoutX="-11.0" layoutY="-38.0"
+                                                                   title="Income's Chart"
+                                                                   AnchorPane.bottomAnchor="0.0"
+                                                                   AnchorPane.leftAnchor="0.0"
+                                                                   AnchorPane.rightAnchor="0.0"
+                                                                   AnchorPane.topAnchor="0.0">
+                                                            <xAxis>
+                                                                <CategoryAxis side="BOTTOM"/>
+                                                            </xAxis>
+                                                            <yAxis>
+                                                                <NumberAxis side="LEFT"/>
+                                                            </yAxis>
+                                                        </AreaChart>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="285.0" layoutY="55.0" prefHeight="344.0"
+                                                            prefWidth="393.0" AnchorPane.bottomAnchor="18.0"
+                                                            AnchorPane.rightAnchor="14.0"
+                                                            AnchorPane.topAnchor="18.0">
+                                                    <children>
+                                                        <BarChart fx:id="dashboard_CustomerChart"
+                                                                  layoutX="-87.0" layoutY="-70.0"
+                                                                  title="Customer's Chart"
+                                                                  AnchorPane.bottomAnchor="0.0"
+                                                                  AnchorPane.leftAnchor="0.0"
+                                                                  AnchorPane.rightAnchor="0.0"
+                                                                  AnchorPane.topAnchor="0.0">
+                                                            <xAxis>
+                                                                <CategoryAxis side="BOTTOM"/>
+                                                            </xAxis>
+                                                            <yAxis>
+                                                                <NumberAxis side="LEFT"/>
+                                                            </yAxis>
+                                                        </BarChart>
+                                                    </children>
+                                                </AnchorPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="AchPan_Stock" layoutX="72.0" prefHeight="600.0"
+                                            prefWidth="878.0" visible="false" AnchorPane.bottomAnchor="0.0"
+                                            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                            AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutX="15.0" layoutY="14.0" prefHeight="286.0"
+                                                    prefWidth="849.0" style="-fx-background-color: #FFC0CB;"
+                                                    AnchorPane.bottomAnchor="300.0"
+                                                    AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0"
+                                                    AnchorPane.topAnchor="14.0">
+                                            <children>
+                                                <TableView fx:id="table_Stock" layoutX="328.0" layoutY="43.0"
+                                                           prefHeight="200.0" prefWidth="200.0"
+                                                           AnchorPane.bottomAnchor="16.0"
+                                                           AnchorPane.leftAnchor="18.0"
+                                                           AnchorPane.rightAnchor="17.0"
+                                                           AnchorPane.topAnchor="16.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="col_Stock_ProductID"
+                                                                     prefWidth="75.0" text="Product ID"/>
+                                                        <TableColumn fx:id="col_Stock_ProductName"
+                                                                     prefWidth="205.0" text="Product Name"/>
+                                                        <TableColumn fx:id="col_Stock_Type" prefWidth="132.0"
+                                                                     text="Type"/>
+                                                        <TableColumn fx:id="col_Stock_Stock" prefWidth="78.0"
+                                                                     text="Stock"/>
+                                                        <TableColumn fx:id="col_Stock_Price" prefWidth="104.0"
+                                                                     text="Price"/>
+                                                        <TableColumn fx:id="col_Stock_Status"
+                                                                     prefWidth="107.0" text="Status"/>
+                                                        <TableColumn fx:id="col_Stock_Date" prefWidth="118.0"
+                                                                     text="Date"/>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <Separator prefWidth="200.0" AnchorPane.bottomAnchor="283.0"
+                                                   AnchorPane.leftAnchor="14.0"
+                                                   AnchorPane.rightAnchor="12.0"/>
+                                        <AnchorPane layoutX="670.0" layoutY="386.0" prefHeight="261.0"
+                                                    prefWidth="200.0" style="-fx-background-color: #87CEEB;"
+                                                    AnchorPane.bottomAnchor="14.0"
+                                                    AnchorPane.leftAnchor="15.0"
+                                                    AnchorPane.rightAnchor="14.0">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="6.0"
+                                                      prefHeight="182.0" prefWidth="818.0" spacing="100.0"
+                                                      AnchorPane.leftAnchor="14.0"
+                                                      AnchorPane.rightAnchor="14.0">
+                                                    <children>
+                                                        <VBox alignment="CENTER_LEFT" prefHeight="182.0"
+                                                              prefWidth="265.0" spacing="20.0">
+                                                            <children>
+                                                                <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                                                    <children>
+                                                                        <Label text="Product ID: "/>
+                                                                        <TextField fx:id="txt_Stock_ProductID"
+                                                                                   prefHeight="25.0"
+                                                                                   prefWidth="83.0"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT">
+                                                                    <children>
+                                                                        <Label text="Product Name: "/>
+                                                                        <TextField
+                                                                                fx:id="txt_Stock_ProductName"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" spacing="52.0">
+                                                                    <children>
+                                                                        <Label text="Type:"/>
+                                                                        <ComboBox fx:id="cbx_Stock_Type"
+                                                                                  prefWidth="150.0"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox alignment="CENTER_LEFT" prefHeight="182.0"
+                                                              prefWidth="265.0" spacing="20.0">
+                                                            <children>
+                                                                <HBox alignment="CENTER_LEFT" spacing="23.0">
+                                                                    <children>
+                                                                        <Label text="Stock: "/>
+                                                                        <TextField fx:id="txt_Stock_Stock"
+                                                                                   prefHeight="25.0"
+                                                                                   prefWidth="83.0"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                                    <children>
+                                                                        <Label text="Price ($): "/>
+                                                                        <TextField fx:id="txt_Stock_Price"
+                                                                                   prefHeight="25.0"
+                                                                                   prefWidth="98.0"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                                                    <children>
+                                                                        <Label text="Status:"/>
+                                                                        <ComboBox fx:id="cbx_Stock_Status"
+                                                                                  prefWidth="150.0"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox alignment="CENTER" spacing="5.0"
+                                                              style="-fx-background-color: #FFFF99;">
+                                                            <children>
+                                                                <ImageView fx:id="imaV_Stock_Image"
+                                                                           fitHeight="150.0" fitWidth="133.0"
+                                                                           pickOnBounds="true"
+                                                                           preserveRatio="true"/>
+                                                                <Button fx:id="btn_Stock_Import"
+                                                                        mnemonicParsing="false"
+                                                                        onAction="#importImage"
+                                                                        prefHeight="26.0" prefWidth="96.0"
+                                                                        text="Import"/>
+                                                            </children>
+                                                            <HBox.margin>
+                                                                <Insets/>
+                                                            </HBox.margin>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="14.0" layoutY="199.0"
+                                                      prefHeight="54.0" prefWidth="827.0" spacing="20.0"
+                                                      AnchorPane.leftAnchor="14.0"
+                                                      AnchorPane.rightAnchor="14.0">
+                                                    <children>
+                                                        <Button fx:id="btn_Stock_Add" mnemonicParsing="false"
+                                                                onAction="#addStock" prefHeight="41.0"
+                                                                prefWidth="112.0" text="Add"/>
+                                                        <Button fx:id="btn_Stock_Update"
+                                                                mnemonicParsing="false"
+                                                                onAction="#updateStock" prefHeight="41.0"
+                                                                prefWidth="112.0" text="Update"/>
+                                                        <Button fx:id="btn_Stock_Clear"
+                                                                mnemonicParsing="false" onAction="#clearStock"
+                                                                prefHeight="41.0" prefWidth="112.0"
+                                                                text="Clear"/>
+                                                        <Button fx:id="btn_Stock_Delete"
+                                                                mnemonicParsing="false"
+                                                                onAction="#deleteStock" prefHeight="41.0"
+                                                                prefWidth="112.0" text="Delete"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="AchPan_Menu" prefHeight="200.0" prefWidth="200.0"
+                                            style="-fx-background-color: #FFD700;" visible="false"
+                                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="566.0"
+                                                    prefWidth="512.0" style="-fx-background-color: #FFC0CB;"
+                                                    AnchorPane.bottomAnchor="17.0"
+                                                    AnchorPane.leftAnchor="14.0"
+                                                    AnchorPane.rightAnchor="352.0"
+                                                    AnchorPane.topAnchor="17.0">
+                                            <children>
+                                                <ScrollPane fx:id="menu_ScrollPane" layoutX="159.0"
+                                                            layoutY="183.0" prefHeight="200.0"
+                                                            prefWidth="200.0" AnchorPane.bottomAnchor="10.0"
+                                                            AnchorPane.leftAnchor="10.0"
+                                                            AnchorPane.rightAnchor="10.0"
+                                                            AnchorPane.topAnchor="10.0"/>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="342.0" layoutY="17.0" prefHeight="566.0"
+                                                    prefWidth="528.0" style="-fx-background-color: #A3E4D7;"
+                                                    AnchorPane.bottomAnchor="17.0"
+                                                    AnchorPane.leftAnchor="555.0"
+                                                    AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0">
+                                            <children>
+                                                <TableView fx:id="table_Menu" layoutX="58.0" layoutY="21.0"
+                                                           prefHeight="200.0" prefWidth="200.0"
+                                                           AnchorPane.bottomAnchor="303.0"
+                                                           AnchorPane.leftAnchor="10.0"
+                                                           AnchorPane.rightAnchor="10.0"
+                                                           AnchorPane.topAnchor="10.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="col_Menu_ProductName"
+                                                                     prefWidth="115.0" text="Product Name"/>
+                                                        <TableColumn fx:id="col_Menu_Quantity"
+                                                                     prefWidth="79.0" text="Quantity"/>
+                                                        <TableColumn fx:id="col_Menu_Price" prefWidth="99.0"
+                                                                     text="Price ($)"/>
+                                                    </columns>
+                                                </TableView>
+                                                <VBox alignment="CENTER_LEFT" layoutX="127.0" layoutY="283.0"
+                                                      prefHeight="112.0" prefWidth="174.0" spacing="10.0">
+                                                    <children>
+                                                        <HBox alignment="CENTER_LEFT" spacing="28.0">
+                                                            <children>
+                                                                <Label text="Total:">
+                                                                    <font>
+                                                                        <Font size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                                <Label fx:id="menu_Total" text="\$0.0">
+                                                                    <font>
+                                                                        <Font size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox spacing="10.0">
+                                                            <children>
+                                                                <Label text="Amount:">
+                                                                    <font>
+                                                                        <Font size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                                <TextField fx:id="menu_Amount"
+                                                                           onAction="#menuAmount"
+                                                                           prefHeight="25.0" prefWidth="100.0"
+                                                                           promptText="\$0.0"/>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox spacing="12.0">
+                                                            <children>
+                                                                <Label text="Change:">
+                                                                    <font>
+                                                                        <Font size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                                <Label fx:id="menu_Change" text="\$0.0">
+                                                                    <font>
+                                                                        <Font size="15.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <Button fx:id="btn_Menu_Pay" layoutX="15.0" layoutY="420.0"
+                                                        mnemonicParsing="false" onAction="#payMenu"
+                                                        prefHeight="41.0" prefWidth="290.0" text="Pay"
+                                                        AnchorPane.bottomAnchor="105.0"
+                                                        AnchorPane.leftAnchor="15.0"
+                                                        AnchorPane.rightAnchor="10.0"/>
+                                                <Button fx:id="btn_Menu_Remove" layoutX="28.0" layoutY="489.0"
+                                                        mnemonicParsing="false" onAction="#removeMenu"
+                                                        prefHeight="41.0" prefWidth="119.0" text="Remove"/>
+                                                <Button fx:id="btn_Menu_Recipt" layoutX="173.0"
+                                                        layoutY="489.0" mnemonicParsing="false"
+                                                        onAction="#recipt_Menu" prefHeight="41.0"
+                                                        prefWidth="119.0" text="Recipt"/>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="AchPan_Custemers" layoutX="32.0" layoutY="27.0"
+                                            prefHeight="200.0" prefWidth="200.0"
+                                            style="-fx-background-color: #AED6F1;" visible="false"
+                                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutX="342.0" layoutY="191.0" prefHeight="200.0"
+                                                    prefWidth="200.0" style="-fx-background-color: #E6E6FA;"
+                                                    AnchorPane.bottomAnchor="10.0"
+                                                    AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+                                                    AnchorPane.topAnchor="10.0">
+                                            <children>
+                                                <Label layoutX="18.0" layoutY="14.0" text="Customers"
+                                                       AnchorPane.leftAnchor="18.0"
+                                                       AnchorPane.topAnchor="14.0">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TableView fx:id="Table_customers" layoutX="18.0"
+                                                           layoutY="57.0" prefHeight="200.0" prefWidth="200.0"
+                                                           AnchorPane.bottomAnchor="14.0"
+                                                           AnchorPane.leftAnchor="18.0"
+                                                           AnchorPane.rightAnchor="18.0"
+                                                           AnchorPane.topAnchor="57.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="customers_Col_ID"
+                                                                     prefWidth="211.0" text="Customer ID"/>
+                                                        <TableColumn fx:id="customers_Col_Total"
+                                                                     prefWidth="241.0" text="Total ($)"/>
+                                                        <TableColumn fx:id="customers_Col_Date"
+                                                                     prefWidth="171.0" text="Date"/>
+                                                        <TableColumn fx:id="customers_Col_Cashier"
+                                                                     prefWidth="175.0" text="Cashier"/>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
+
